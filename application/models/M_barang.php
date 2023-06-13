@@ -1,0 +1,24 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class M_barang extends CI_Model
+{
+    public function get_data($tabel)
+    {
+        return $this->db->get($tabel);
+    }
+    function insert($data, $tabel)
+    {
+        $this->db->insert($tabel, $data);
+    }
+    public function edit_barang($id, $tabel, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update($tabel, $data);
+    }
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('t_barang');
+    }
+}
