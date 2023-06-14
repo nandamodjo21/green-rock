@@ -45,18 +45,20 @@ class Authentication extends REST_Controller
     {
         $query = array(
 
-            'nama' => $this->post('nama'),
+            'nama_lengkap' => $this->post('nama'),
             'email' => $this->post('email'),
-            'image' => "default.jpg",
+            'no_hp' => $this->input->post('nohp'),
+            'alamat' => $this->input->post('alamat'),
             'password' => md5($this->post('password')),
-            'role_id' => "2",
-            'is_active' => "1"
+            'nik' =>$this->input->post('nik')
+           
             
 
         );
         $this->db->set('id_user', 'UUID()', false);
 
-        $data = $this->db->insert('t_user', $query);
+        $data = $this->db->insert('tbl_user', $query);
+        echo json_encode($data);
         if ($data) {
             return
                 $this->response([
