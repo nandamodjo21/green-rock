@@ -13,7 +13,7 @@ class Penyewa extends CI_Controller
         $data['title'] = 'Penyewa';
         $data['user'] = $this->db->get_where('t_user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['penyewa'] = $this->M_penyewa->get_data('registrasi')->result();
+        $data['penyewa'] = $this->M_penyewa->get_data();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

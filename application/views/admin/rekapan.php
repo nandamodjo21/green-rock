@@ -16,7 +16,9 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Nama Penyewa</th>
                                     <th>Nama Barang</th>
+                                    <th>Stok</th>
                                     <th>Lama Sewa</th>
                                     <th>Tanggal Sewa dan Waktu</th>
                                     <th>Tanggal Kembali</th>
@@ -27,21 +29,23 @@
                             <tbody>
                                 <?php $no = 1;
                                 foreach ($rekapan as $br) : ?>
-                                    <tr>
-                                        <th><?= $no++ ?></th>
-                                        <th><?= $br->nama_barang ?></th>
-                                        <th><?= $br->lama_sewa ?></th>
-                                        <th><?= $br->tgl_sewa ?></th>
-                                        <th><?= $br->Tgl_kembali ?></th>
+                                <tr>
+                                    <th><?= $no++ ?></th>
+                                    <th><?= $br->nama_lengkap ?></th>
+                                    <th><?= $br->nama_barang ?></th>
+                                    <th><?= $br->stok ?></th>
+                                    <th><?= $br->lama_sewa ?></th>
+                                    <th><?= $br->tgl_sewa ?></th>
+                                    <th><?= $br->tgl_kembali ?></th>
 
-                                        <th>
+                                    <th>
 
-                                            <a href="" class="badge badge-success">edit</a>
-                                            <a href="" class="badge badge-danger">delete</a>
-                                        </th>
-                                    </tr>
+                                        <a href="" class="badge badge-success">edit</a>
+                                        <a href="" class="badge badge-danger">delete</a>
+                                    </th>
+                                </tr>
                             </tbody>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </table>
                     </div>
                 </div>

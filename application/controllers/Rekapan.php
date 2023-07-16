@@ -13,7 +13,7 @@ class Rekapan extends CI_Controller
         $data['title'] = 'Rekapan';
         $data['user'] = $this->db->get_where('t_user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['rekapan'] = $this->M_rekapan->get_data('t_penyewaan')->result();
+        $data['rekapan'] = $this->M_rekapan->get_data()->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

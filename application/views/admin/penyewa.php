@@ -21,7 +21,6 @@
                                     <th>Email</th>
                                     <th>Alamat</th>
                                     <th>NIK</th>
-                                    <th>Password</th>
                                     <th>Nomor HP</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -29,22 +28,21 @@
                             <tbody>
                                 <?php $no = 1;
                                 foreach ($penyewa as $br) : ?>
-                                    <tr>
-                                        <th><?= $no++ ?></th>
-                                        <th><?= $br->nama ?></th>
-                                        <th><?= $br->email ?></th>
-                                        <th><?= $br->alamat ?></th>
-                                        <th><?= $br->foto_ktp ?></th>
-                                        <th><?= $br->password ?></th>
-                                        <th><?= $br->no_hp ?></th>
-                                        <th>
+                                <tr>
+                                    <th><?= $no++ ?></th>
+                                    <th><?= $br->nama_lengkap ?></th>
+                                    <th><?= $br->email ?></th>
+                                    <th><?= $br->alamat ?></th>
+                                    <th><?= $br->nik ?></th>
+                                    <th><?= $br->no_hp ?></th>
+                                    <th>
 
-                                            <a href="" class="badge badge-success">edit</a>
-                                            <a href="" class="badge badge-danger">delete</a>
-                                        </th>
-                                    </tr>
+                                        <a href="" class="badge badge-success">edit</a>
+                                        <a href="" class="badge badge-danger">delete</a>
+                                    </th>
+                                </tr>
                             </tbody>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </table>
                     </div>
                 </div>

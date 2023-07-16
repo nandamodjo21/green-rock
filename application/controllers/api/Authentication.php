@@ -22,24 +22,26 @@ class Authentication extends REST_Controller
     {
         $email = $this->post('email');
         $password = md5($this->post('password'));
-
-        $this->db->where('email', $email);
-        $this->db->where('password', $password);
-        $data = $this->M_api->getUser($email,$password)->row_array();
+    
+        $data = $this->M_api->getUser($email, $password)->row_array();
         if ($data) {
-            return
-                $this->response([
-                    'status' => true,
-                    'message' => 'Berhasil Login',
-                    'data' => $data
-                ], REST_Controller::HTTP_OK);
+            $response = [
+                'status' => true,
+                'message' => 'Berhasil Login',
+                'id' => $data['id_user'], // Ubah 'id' menjadi kolom yang sesuai dari tabel user
+                'email' => $data['email'], // Ubah 'email' menjadi kolom yang sesuai dari tabel user
+                'role' => $data['role_id'] // Ubah 'role' menjadi kolom yang sesuai dari tabel user
+            ];
+            $this->response($response, REST_Controller::HTTP_OK);
         } else {
-            $this->response([
+            $response = [
                 'status' => false,
                 'message' => 'No users were found'
-            ], REST_Controller::HTTP_NOT_FOUND);
+            ];
+            $this->response($response, REST_Controller::HTTP_NOT_FOUND);
         }
     }
+    
 
     public function register_post()
     {
