@@ -13,7 +13,7 @@ class Barang extends CI_Controller
         $data['title'] = 'Data Barang';
         $data['user'] = $this->db->get_where('t_user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['barang'] = $this->M_barang->get_data('t_barang')->result();
+        $data['barang'] = $this->M_barang->get_data()->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
