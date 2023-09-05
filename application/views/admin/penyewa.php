@@ -22,6 +22,7 @@
                                     <th>Alamat</th>
                                     <th>NIK</th>
                                     <th>Nomor HP</th>
+                                    <th>Foto Ktp</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -36,9 +37,18 @@
                                     <th><?= $br->nik ?></th>
                                     <th><?= $br->no_hp ?></th>
                                     <th>
+                                        <?php if ($br->image_path) : ?>
+                                        <img src="http://localhost:8085/api/<?= $br->image_path ?>"
+                                            alt="<?= $br->image_path ?>">
+                                        <?php else : ?>
+                                        Tidak Ada Gambar
+                                        <?php endif; ?>
+                                    </th>
 
-                                        <a href="" class="badge badge-success">edit</a>
-                                        <a href="" class="badge badge-danger">delete</a>
+                                    <th>
+
+                                        <a href="" class="badge badge-success">active</a>
+
                                     </th>
                                 </tr>
                             </tbody>
