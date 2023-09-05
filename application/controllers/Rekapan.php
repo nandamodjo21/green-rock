@@ -13,6 +13,7 @@ class Rekapan extends CI_Controller
         $data['title'] = 'Rekapan';
         $data['user'] = $this->db->get_where('t_user', ['email' => $this->session->userdata('email')])->row_array();
 
+       
         $data['rekapan'] = $this->M_rekapan->get_data()->result();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -20,4 +21,20 @@ class Rekapan extends CI_Controller
         $this->load->view('admin/rekapan', $data);
         $this->load->view('templates/footer');
     }
+
+    public function setuju($id_penyewa)
+    {
+       $this->M_rekapan->verifikator($id_penyewa);
+       $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Berhasil menyetujui transaksi!</div>');
+       redirect('rekapan');
+       
+    }
+
+    
+
+
+  
+    
+   
+  
 }
