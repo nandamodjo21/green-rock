@@ -3,9 +3,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_barang extends CI_Model
 {
-    public function get_data($tabel)
+    public function get_data()
     {
-        return $this->db->get($tabel);
+        return $this->db->query("SELECT id, nama_barang, stok_barang, CONCAT('Rp.', FORMAT(harga_barang,0)) as harga_barang from t_barang");
     }
     function insert($data, $tabel)
     {
